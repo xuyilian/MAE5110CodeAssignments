@@ -415,7 +415,7 @@ Record the state immediately after **every** impact, forward or backward. The po
 For the spoke counts considered here, $`\cos(2\alpha)>0`$, so the reset preserves the sign of the pre-impact velocity. Positive post-impact velocity identifies a forward impact and negative velocity identifies a backward impact. The signed angular velocity determines the post-impact angle:
 
 ```math
-\theta_k=\gamma-\operatorname{sgn}(\dot\theta_k)\alpha,\qquad
+\theta_k=\gamma-\mathrm{sgn}(\dot\theta_k)\alpha,\qquad
 \dot\theta_{k+1}=P(\dot\theta_k).
 ```
 

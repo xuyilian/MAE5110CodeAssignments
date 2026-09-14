@@ -1,0 +1,540 @@
+{
+  "configuration": {
+    "angle_samples": 61,
+    "velocity_samples": 81,
+    "velocity_limits": [
+      -3.0,
+      3.0
+    ],
+    "timestep": 0.002,
+    "time_limits": [
+      30.0,
+      60.0,
+      120.0
+    ],
+    "velocity_atol": 1e-06,
+    "velocity_rtol": 1e-05,
+    "walking_comparisons": 5,
+    "resting_comparisons": 3
+  },
+  "slope": [
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 1.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 2.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4940,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 0.9997976118194697,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.5,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.709259664004579,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.8592596640045795,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.959259664004579,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2964,
+        "walking": 1977,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.40012143290831814,
+      "rest_fraction": 0.5998785670916819,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.0182564316708165,
+      "analytical_velocity": 1.0182564316657294,
+      "multiplier": 0.49999999536587403,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.787992059438693e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 4.109259664004579,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2899,
+        "walking": 2042,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.41327666464278484,
+      "rest_fraction": 0.5867233353572151,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.0373340047677486,
+      "analytical_velocity": 1.0373340047694768,
+      "multiplier": 0.5000000051014197,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.993383318994347e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 4.5,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2734,
+        "walking": 2206,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.446468326249747,
+      "rest_fraction": 0.5533292855697227,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.0854403922562288,
+      "analytical_velocity": 1.0854403922533638,
+      "multiplier": 0.4999999785060272,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 9.214851104388799e-14
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2555,
+        "walking": 2386,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.4828981987451933,
+      "rest_fraction": 0.5171018012548068,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.1440166199495867,
+      "analytical_velocity": 1.1440166199507342,
+      "multiplier": 0.49999998607108687,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.284172850863797e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 6.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2227,
+        "walking": 2713,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.5490791337785873,
+      "rest_fraction": 0.4507184780408824,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.2528573133712602,
+      "analytical_velocity": 1.2528573133785779,
+      "multiplier": 0.4999999871579952,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.4489299477181703e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 8.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 1697,
+        "walking": 3244,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.6565472576401539,
+      "rest_fraction": 0.3434527423598462,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.4456460757603495,
+      "analytical_velocity": 1.4456460757584273,
+      "multiplier": 0.5000000182642239,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 3.969491402244785e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 10.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 1234,
+        "walking": 3707,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.7502529852256629,
+      "rest_fraction": 0.24974701477433717,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.6148026172923005,
+      "analytical_velocity": 1.6148026173016552,
+      "multiplier": 0.5000000019295125,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 7.502665155811883e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 12.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 856,
+        "walking": 4084,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.8265533292855697,
+      "rest_fraction": 0.1732442825339,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.7669480653426153,
+      "analytical_velocity": 1.7669480653490761,
+      "multiplier": 0.5000000054999898,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 1.4415135751733033e-12
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 14.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 546,
+        "walking": 4395,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.8894960534304797,
+      "rest_fraction": 0.11050394656952034,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.9059957066713853,
+      "analytical_velocity": 1.905995706671714,
+      "multiplier": 0.49999996962202253,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 5.304867656263923e-12
+    }
+  ],
+  "spokes": [
+    {
+      "number_of_spokes": 6,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 10.20781872203419,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4940,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 0.9997976118194697,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 7,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 6.060005988146026,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 4941,
+        "walking": 0,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.0,
+      "rest_fraction": 1.0,
+      "unresolved_fraction": 0.0,
+      "walking_exists": false,
+      "walking_velocity": null,
+      "analytical_velocity": null,
+      "multiplier": null,
+      "analytical_multiplier": null,
+      "perturbation": null,
+      "fixed_point_residual": null
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 3.9092596640045794,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 2555,
+        "walking": 2386,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.4828981987451933,
+      "rest_fraction": 0.5171018012548068,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.1440166199495867,
+      "analytical_velocity": 1.1440166199507342,
+      "multiplier": 0.49999998607108687,
+      "analytical_multiplier": 0.5000000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.284172850863797e-12
+    },
+    {
+      "number_of_spokes": 9,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 2.6762345040346354,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 1876,
+        "walking": 3065,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.6203197733252378,
+      "rest_fraction": 0.3796802266747622,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.288916595927219,
+      "analytical_velocity": 1.28891659591708,
+      "multiplier": 0.5868240795703361,
+      "analytical_multiplier": 0.5868240888334652,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 4.394928865281145e-12
+    },
+    {
+      "number_of_spokes": 10,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 1.915917255414868,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 1291,
+        "walking": 3650,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.7387168589354381,
+      "rest_fraction": 0.26128314106456185,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.4149550544090048,
+      "analytical_velocity": 1.4149550544016953,
+      "multiplier": 0.6545085086329117,
+      "analytical_multiplier": 0.6545084971874737,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 2.7555735471196385e-12
+    },
+    {
+      "number_of_spokes": 11,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 1.4204115226520035,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 1056,
+        "walking": 3885,
+        "unresolved": 0,
+        "upright": 0
+      },
+      "walking_fraction": 0.7862780813600486,
+      "rest_fraction": 0.21372191863995144,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.5273870068130935,
+      "analytical_velocity": 1.5273870068126993,
+      "multiplier": 0.7077075237915675,
+      "analytical_multiplier": 0.7077075065009433,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 8.79518680108049e-13
+    },
+    {
+      "number_of_spokes": 12,
+      "slope_degrees": 5.0,
+      "critical_slope_degrees": 1.0831128345199166,
+      "grid_size": 4941,
+      "counts": {
+        "rest": 794,
+        "walking": 4146,
+        "unresolved": 0,
+        "upright": 1
+      },
+      "walking_fraction": 0.8391013964784456,
+      "rest_fraction": 0.16069621534102407,
+      "unresolved_fraction": 0.0,
+      "walking_exists": true,
+      "walking_velocity": 1.6295633411695871,
+      "analytical_velocity": 1.6295633411561516,
+      "multiplier": 0.7500000031523957,
+      "analytical_multiplier": 0.7500000000000001,
+      "perturbation": 0.0001,
+      "fixed_point_residual": 4.503064587879635e-13
+    }
+  ],
+  "validation": [
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 5.0,
+      "kind": "timestep",
+      "refined_grid_size": 4941,
+      "common_grid_disagreements": 0,
+      "base_walking_fraction": 0.4828981987451933,
+      "refined_walking_fraction": 0.4828981987451933,
+      "refined_unresolved": 0
+    },
+    {
+      "number_of_spokes": 8,
+      "slope_degrees": 3.959259664004579,
+      "kind": "grid",
+      "refined_grid_size": 19481,
+      "common_grid_disagreements": 0,
+      "base_walking_fraction": 0.40012143290831814,
+      "refined_walking_fraction": 0.4009547764488476,
+      "refined_unresolved": 0
+    },
+    {
+      "number_of_spokes": 12,
+      "slope_degrees": 5.0,
+      "kind": "grid",
+      "refined_grid_size": 19481,
+      "common_grid_disagreements": 0,
+      "base_walking_fraction": 0.8391013964784456,
+      "refined_walking_fraction": 0.8403059391201684,
+      "refined_unresolved": 0
+    }
+  ]
+}

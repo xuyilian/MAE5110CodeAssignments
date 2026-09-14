@@ -1,0 +1,54 @@
+{
+  "parameters": {
+    "gravity": 9.81,
+    "spoke_length": 1.0,
+    "hub_mass": 1.0,
+    "number_of_spokes": 8,
+    "half_spoke_angle": 0.39269908169872414,
+    "slope_angle": 0.08726646259971647,
+    "settling_velocity": 0.001
+  },
+  "timestep": 0.002,
+  "map_samples": 367,
+  "valid_samples": 364,
+  "velocity_range": [
+    -3.0,
+    3.0
+  ],
+  "backward_threshold": 1.4889081412374943,
+  "minimum_velocity": 0.9529288673976603,
+  "numerical_fixed_point": 1.144016619946589,
+  "analytical_fixed_point": 1.1440166199507342,
+  "fixed_point_residual": 6.284750497798086e-12,
+  "max_map_error": 6.922018513932926e-12,
+  "analytical_multiplier": 0.5000000000000001,
+  "slope_estimates": [
+    {
+      "perturbation": 0.01,
+      "left_slope": 0.4989025675139036,
+      "right_slope": 0.50108788132881,
+      "centered_slope": 0.4999952244213568
+    },
+    {
+      "perturbation": 0.001,
+      "left_slope": 0.4998906889888133,
+      "right_slope": 0.5001092110268335,
+      "centered_slope": 0.4999999500078234
+    },
+    {
+      "perturbation": 0.0001,
+      "left_slope": 0.49998907330151,
+      "right_slope": 0.5000108990516061,
+      "centered_slope": 0.49999998617655805
+    },
+    {
+      "perturbation": 1e-05,
+      "left_slope": 0.4999989747123123,
+      "right_slope": 0.5000005661504048,
+      "centered_slope": 0.4999997704313585
+    }
+  ],
+  "refined_timestep": 0.001,
+  "refined_fixed_point": 1.144016619946589,
+  "refined_multiplier": 0.500000001085743
+}

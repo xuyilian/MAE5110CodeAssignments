@@ -1,0 +1,73 @@
+{
+  "parameters": {
+    "gravity": 9.81,
+    "spoke_length": 1.0,
+    "hub_mass": 1.0,
+    "number_of_spokes": 8,
+    "half_spoke_angle": 0.39269908169872414,
+    "slope_angle": 0.08726646259971647,
+    "settling_velocity": 0.001
+  },
+  "energy_max_relative_error": 1.278135434199742e-10,
+  "guard_cases_passed": 8,
+  "resets": [
+    {
+      "direction": 1,
+      "pre_angle_degrees": 27.5,
+      "post_angle_degrees": -17.5,
+      "pre_velocity": 2.0,
+      "post_velocity": 1.4142135623730951,
+      "kinetic_energy_ratio": 0.5000000000000001,
+      "momentum_residual": 0.0
+    },
+    {
+      "direction": -1,
+      "pre_angle_degrees": -17.5,
+      "post_angle_degrees": 27.5,
+      "pre_velocity": -2.0,
+      "post_velocity": -1.4142135623730951,
+      "kinetic_energy_ratio": 0.5000000000000001,
+      "momentum_residual": 0.0
+    }
+  ],
+  "expected_first_post_impact_velocity": 1.6292289628415495,
+  "timestep_refinement": [
+    {
+      "timestep": 0.01,
+      "contact_time": 0.4137781069520863,
+      "post_velocity": 1.6292289617194775,
+      "absolute_velocity_error": 1.122071990877771e-09
+    },
+    {
+      "timestep": 0.005,
+      "contact_time": 0.41377810446079843,
+      "post_velocity": 1.6292289627754757,
+      "absolute_velocity_error": 6.607381308754157e-11
+    },
+    {
+      "timestep": 0.002,
+      "contact_time": 0.4137781042940918,
+      "post_velocity": 1.6292289628437715,
+      "absolute_velocity_error": 2.2220003614847883e-12
+    },
+    {
+      "timestep": 0.001,
+      "contact_time": 0.4137781042894352,
+      "post_velocity": 1.6292289628439898,
+      "absolute_velocity_error": 2.440270208126094e-12
+    }
+  ],
+  "walking_after_20_impacts": 1.1440177416806243,
+  "expected_fixed_velocity": 1.1440166199507342,
+  "rocking_after_30_impacts": 3.0517284192956524e-06,
+  "classified_post_impact_velocities": [
+    1.1440884083506835,
+    0.0
+  ],
+  "timeout_labels": [
+    2,
+    2
+  ],
+  "grid_refinement_agreement": 420,
+  "grid_refinement_total": 420
+}

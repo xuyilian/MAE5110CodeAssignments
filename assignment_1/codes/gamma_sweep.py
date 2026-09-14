@@ -1,3 +1,5 @@
+"""Run from the repository root: uv run python assignment_1/codes/gamma_sweep.py."""
+
 from pathlib import Path
 
 import numpy as np
@@ -313,7 +315,7 @@ def plot_3d_basins(results, slope_angles_degrees, number_of_spokes, normalizatio
         loc="lower center", frameon=False, ncol=2,
     )
     figure.subplots_adjust(left=0.02, right=0.90, bottom=0.08, top=0.90)
-    output_directory = Path("figures")
+    output_directory = Path(__file__).resolve().parents[1] / "figures"
     output_directory.mkdir(exist_ok=True)
     output_path = output_directory / "gamma_attraction_basins_3d.png"
     figure.savefig(output_path, dpi=200, bbox_inches="tight")
@@ -409,7 +411,7 @@ def plot_gamma_sweep(number_of_spokes=6, view="3d"):
         frameon=False,
     )
 
-    output_directory = Path("figures")
+    output_directory = Path(__file__).resolve().parents[1] / "figures"
     output_directory.mkdir(exist_ok=True)
     output_path = output_directory / "gamma_attraction_basins.png"
     figure.savefig(output_path, dpi=200, bbox_inches="tight")

@@ -1,3 +1,5 @@
+"""Numerical integration for the Assignment 1 simulations."""
+
 def rk4_step(dynamics, time, state, timestep, params):
     """Advance an ODE state by one fourth-order Runge-Kutta step."""
     k1 = dynamics(time, state, params)

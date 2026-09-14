@@ -1,7 +1,7 @@
 """Draw the basin map and phase portrait side by side from saved basin data.
 
-Run: uv run python compare_attractors.py
-If basin data are missing, first run: uv run python state_space_basins.py
+Run from the repository root: uv run python assignment_1/codes/compare_attractors.py
+If basin data are missing, first run: uv run python assignment_1/codes/state_space_basins.py
 """
 
 from pathlib import Path
@@ -13,13 +13,13 @@ from models import rimless_wheel as model
 from phase_portrait import plot_phase_portrait
 from state_space_basins import plot_basins
 
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def main():
     data_path = OUTPUT_DIRECTORY / "state_space_basins.npz"
     if not data_path.exists():
-        raise FileNotFoundError("Run 'uv run python state_space_basins.py' first")
+        raise FileNotFoundError("Run 'uv run python assignment_1/codes/state_space_basins.py' first")
     with np.load(data_path) as data:
         params = model.generate_params(int(data["number_of_spokes"]))
         params.update({key: data[key].item() for key in params if key in data})

@@ -1,6 +1,6 @@
 """Estimate rimless-wheel attraction basins for one fixed parameter set.
 
-Run from the repository root: uv run python state_space_basins.py
+Run from the repository root: uv run python assignment_1/codes/state_space_basins.py
 Edit the configuration below to change the grid or convergence tolerances.
 Uses the RK4/contact-event and convergence routines in gamma_sweep.py.
 """
@@ -35,7 +35,7 @@ VELOCITY_RTOL = 1e-3
 WALKING_COMPARISONS = 5
 RESTING_COMPARISONS = 3
 UNSTABLE_EQUILIBRIUM = 3  # A stationary solution, but not an attractor.
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def evaluate_basins(

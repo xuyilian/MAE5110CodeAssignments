@@ -1,6 +1,6 @@
-"""Reproduce the measurements in Section 3 of the root-level assignment_1.md report.
+"""Reproduce Section 3 of the assignment_1/assignment_1.md report.
 
-Run: uv run python sanity_checks.py
+Run from the repository root: uv run python assignment_1/codes/sanity_checks.py
 """
 
 import json
@@ -19,7 +19,7 @@ from gamma_sweep import (
 from integrators import rk4_step
 from models import rimless_wheel as model
 
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def simulate_next_contact(initial_state, params, timestep=0.002, time_limit=30.0):

@@ -1,6 +1,6 @@
 """Plot stance-energy contours, a transient, and the hybrid walking cycle.
 
-Run from the repository root: uv run python phase_portrait.py
+Run from the repository root: uv run python assignment_1/codes/phase_portrait.py
 """
 
 from pathlib import Path
@@ -19,7 +19,7 @@ SLOPE_DEGREES = 5.0
 INITIAL_POST_IMPACT_VELOCITY = 1.5  # rad/s
 TRANSIENT_STEPS = 5
 RESTING_IMPACTS = 8
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def calculate_walking_fixed_point(params):

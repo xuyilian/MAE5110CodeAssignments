@@ -1,3 +1,5 @@
+"""Rimless-wheel dynamics and forward/backward contact resets for Assignment 1."""
+
 import numpy as np
 
 

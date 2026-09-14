@@ -12,7 +12,7 @@ Figure 1 shows the wheel geometry and angle conventions used to define the state
 
 ### 1.1. Physical parameters
 
-The reference configuration below is the one specified in [state_space_basins.py](state_space_basins.py). The slope and number of spokes can be varied for the parameter studies.
+The reference configuration below is the one specified in [state_space_basins.py](codes/state_space_basins.py). The slope and number of spokes can be varied for the parameter studies.
 
 | Symbol | Definition | Reference value | Code parameter |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Thus, the forward reset is
 }
 ```
 
-The corresponding implementation functions in [models/rimless_wheel.py](models/rimless_wheel.py) are `detect_contact()` and `apply_impact_reset()`.
+The corresponding implementation functions in [models/rimless_wheel.py](codes/models/rimless_wheel.py) are `detect_contact()` and `apply_impact_reset()`.
 
 ### 2.3. Backward contact and reset
 
@@ -181,10 +181,10 @@ The mathematical guards above use equality at contact. Numerical detectors use $
 
 The checks below compare the implemented dynamics with physical expectations and analytical predictions. They use the reference parameters $`N=8`$, $`\gamma=5^\circ`$, $`l=1\ \mathrm{m}`$, $`m=1\ \mathrm{kg}`$, and $`g=9.81\ \mathrm{m/s^2}`$. All angular velocities are in $`\mathrm{rad/s}`$.
 
-The measurements and assertions are reproducible with [sanity_checks.py](sanity_checks.py). From the repository root, with the project dependencies installed, run:
+The measurements and assertions are reproducible with [sanity_checks.py](codes/sanity_checks.py). From the repository root, with the project dependencies installed, run:
 
 ```console
-uv run python sanity_checks.py
+uv run python assignment_1/codes/sanity_checks.py
 ```
 
 This writes the measured values to [figures/sanity_checks.json](figures/sanity_checks.json) and regenerates Figure 2. The script checks the model's guard/reset functions, RK4 integrator, contact-location routine, and the convergence classifier used by the basin calculations.
@@ -296,7 +296,7 @@ For the reference parameters $`N=8`$, $`\alpha=22.5^\circ`$, and $`\gamma=5^\cir
 
 The upright state $`(0,0)`$ is also stationary, but it is unstable and is classified separately rather than counted as an attractor. In particular, $`\gamma<\alpha`$ permits stable two-contact rest; it does not exclude a coexisting walking cycle.
 
-To estimate both basins, [state_space_basins.py](state_space_basins.py) samples
+To estimate both basins, [state_space_basins.py](codes/state_space_basins.py) samples
 
 ```math
 \theta_0\in[\gamma-\alpha,\gamma+\alpha]
@@ -360,7 +360,7 @@ This is a numerical estimate for one parameter set and a finite grid. The percen
 To reproduce the map and save its classification data, run from the repository root:
 
 ```console
-uv run python state_space_basins.py
+uv run python assignment_1/codes/state_space_basins.py
 ```
 
 The outputs are [the basin figure](figures/state_space_basins.png) and [the grid and classification data](figures/state_space_basins.npz). Section 6 examines how these basins and the walking cycle change with slope and number of spokes.
@@ -388,13 +388,13 @@ The highlighted cycle is initialized at the analytical post-impact fixed velocit
 To reproduce the standalone phase portrait:
 
 ```console
-uv run python phase_portrait.py
+uv run python assignment_1/codes/phase_portrait.py
 ```
 
 To regenerate the side-by-side Figure 3 using the saved basin data:
 
 ```console
-uv run python compare_attractors.py
+uv run python assignment_1/codes/compare_attractors.py
 ```
 
 The combined image is saved as [basins_and_phase_portrait.png](figures/basins_and_phase_portrait.png). Both panels have equal plotting-area dimensions, with their legends placed below; the individual figures remain available separately.
@@ -494,7 +494,7 @@ Near zero, alternating signs and shrinking magnitudes describe decay toward rest
 
 ### 5.3. Numerical map and attractors
 
-[poincare_map.py](poincare_map.py) samples the full displayed interval $`\dot\theta_k\in[-3,3]\ \mathrm{rad/s}`$. Both axes use this finite display window; it is not a physical bound on angular velocity. The grid contains 367 inputs: 121 continuing-backward samples, 61 negative reversing samples, zero, 61 positive reversing samples, 121 continuing-forward samples, and the two thresholds. The 364 valid returns are integrated with RK4 at $`\Delta t=0.002\ \mathrm{s}`$ and bisection-refined contact detection. Every evaluation includes exactly one impact.
+[poincare_map.py](codes/poincare_map.py) samples the full displayed interval $`\dot\theta_k\in[-3,3]\ \mathrm{rad/s}`$. Both axes use this finite display window; it is not a physical bound on angular velocity. The grid contains 367 inputs: 121 continuing-backward samples, 61 negative reversing samples, zero, 61 positive reversing samples, 121 continuing-forward samples, and the two thresholds. The 364 valid returns are integrated with RK4 at $`\Delta t=0.002\ \mathrm{s}`$ and bisection-refined contact detection. Every evaluation includes exactly one impact.
 
 Figure 4(a) compares the numerical next-impact map with its analytical branches and identifies the walking fixed point. Figure 4(b) examines how perturbations around that fixed point change after one step, providing the local stability estimate discussed in Section 5.4.
 
@@ -572,7 +572,7 @@ Halving the integration timestep to $`0.001\ \mathrm{s}`$ gives a centered estim
 To reproduce the figure, numerical data, and validation measurements:
 
 ```console
-uv run python poincare_map.py
+uv run python assignment_1/codes/poincare_map.py
 ```
 
 Outputs are [the return-map figure](figures/poincare_map.png), [the sampled map data](figures/poincare_map.npz), and [the numerical measurements](figures/poincare_map.json). Section 6 examines how slope and spoke count affect the admissible walking domain, the basins of attraction, and the local convergence multiplier.
@@ -704,13 +704,13 @@ In summary, **steeper slopes and more spokes make walking accessible from more s
 Run both sweeps and the refinement checks with:
 
 ```console
-uv run python -u parameter_study.py
+uv run python -u assignment_1/codes/parameter_study.py
 ```
 
 To redraw the figures without repeating the integrations:
 
 ```console
-uv run python parameter_study.py --plot-only
+uv run python assignment_1/codes/parameter_study.py --plot-only
 ```
 
 The results are saved as [basin panels](figures/parameter_basins.png), [parameter trends](figures/parameter_trends.png), [grid classifications](figures/parameter_study.npz), and [measurements and refinement results](figures/parameter_study.json).

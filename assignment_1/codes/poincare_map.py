@@ -1,6 +1,6 @@
 """Numerically construct the signed impact-to-impact map and walking multiplier.
 
-Run: uv run python poincare_map.py
+Run from the repository root: uv run python assignment_1/codes/poincare_map.py
 Every impact is sampled, whether forward or backward.
 """
 
@@ -23,7 +23,7 @@ MIN_VELOCITY = -3.0
 MAX_VELOCITY = 3.0
 PERTURBATIONS = (1e-2, 1e-3, 1e-4, 1e-5)
 BASIN_SAMPLES = 1801
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def calculate_minimum_velocity(params):

@@ -1,7 +1,7 @@
 """Controlled slope/spoke sweeps for Section 6 of the assignment report.
 
-Run: uv run python -u parameter_study.py
-Redraw saved results: uv run python parameter_study.py --plot-only
+Run from the repository root: uv run python -u assignment_1/codes/parameter_study.py
+Redraw saved results: uv run python assignment_1/codes/parameter_study.py --plot-only
 """
 
 import argparse
@@ -31,7 +31,7 @@ TIME_LIMITS = (30.0, 60.0, 120.0)
 VELOCITY_ATOL = 1e-6
 VELOCITY_RTOL = 1e-5
 UPRIGHT = 3
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "figures"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parents[1] / "figures"
 
 
 def calculate_critical_slope(number_of_spokes):
@@ -240,7 +240,7 @@ def plot_study(summary):
             handles.append(Patch(color=palette[UNRESOLVED], label="Unresolved"))
         figure.legend(handles=handles, loc="outside lower center", ncol=3, frameon=False)
         figure.savefig(OUTPUT_DIRECTORY / "parameter_basins.png", dpi=220)
-    print("Saved figures/parameter_trends.png and figures/parameter_basins.png", flush=True)
+    print(f"Saved {OUTPUT_DIRECTORY / 'parameter_trends.png'} and {OUTPUT_DIRECTORY / 'parameter_basins.png'}", flush=True)
 
 
 def main():

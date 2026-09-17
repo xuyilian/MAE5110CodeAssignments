@@ -316,7 +316,7 @@ Here the onset is the first sample of the final uninterrupted interval satisfyin
 
 ![Angle, velocity, and torque for six controlled stance trajectories.](figures/roa_controlled_trajectories.png)
 
-Dashed horizontal lines show the torque limits. The plots display the first 8 s; the simulations continue to 15 s to verify sustained convergence. Angle and velocity need not decrease monotonically: the controller first brakes or reverses motion, then approaches the unsaturated stable dynamics near upright.
+Dashed horizontal lines show the torque limits. The six example simulations and plots end at 6 s, after every example has satisfied the standing tolerances for at least 0.5 s. The separate RoA grid validation in Section 2.3 retains its 15 s horizon. Angle and velocity need not decrease monotonically: the controller first brakes or reverses motion, then approaches the unsaturated stable dynamics near upright.
 
 Reproduce the sweep and both figures with:
 

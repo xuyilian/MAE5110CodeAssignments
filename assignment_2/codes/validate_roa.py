@@ -17,6 +17,7 @@ OUT = Path(__file__).resolve().parents[1] / 'figures'
 PARAMS = model.generate_params()
 LEFT, RIGHT = PARAMS['incline'] - np.pi/8, PARAMS['incline'] + np.pi/7
 TOL, HORIZON = 1e-6, 15.0
+EXAMPLE_HORIZON = 6.0
 
 
 def inside(states):
@@ -24,7 +25,7 @@ def inside(states):
     return (states[:, 1] > low) & (states[:, 1] < high)
 
 
-def integrate(initial, dt, keep_history=False):
+def integrate(initial, dt, keep_history=False, horizon=HORIZON):
     """RK4 with stage-wise feedback; stop only trajectories leaving angle I.
 
     Success requires both tolerances throughout the FINAL half second.
@@ -37,7 +38,7 @@ def integrate(initial, dt, keep_history=False):
     min_margin = np.full(len(states), np.inf)
     torque_min, torque_max = np.inf, -np.inf
     history = [states.copy()] if keep_history else None
-    steps = round(HORIZON/dt)
+    steps = round(horizon/dt)
     for k in range(steps + 1):
         ids = np.flatnonzero(active)
         z = states[ids]
@@ -118,7 +119,7 @@ def plots(grid, result, examples, history, dt):
     for ax, label in zip(axes, [r'$\theta$ (rad)', r'$\omega$ (rad/s)', r'$\tau$ (N m)']):
         ax.set_ylabel(label)
         ax.grid(alpha=.25)
-        ax.set_xlim(0, 8)
+        ax.set_xlim(0, time[-1])
     axes[0].legend(ncol=6, loc='upper right', fontsize=13)
     axes[0].set_title('Controlled stance: state convergence and bounded torque')
     axes[2].set_xlabel('Time (s)')
@@ -151,9 +152,9 @@ def main():
     low, high = capture_bounds(theta, PARAMS)
     fractions = np.array([.5, .01, .99, .01, .99, .5])
     examples = np.column_stack([theta, low + fractions*(high-low)])
-    traces = integrate(examples, .001, keep_history=True)
+    traces = integrate(examples, .001, keep_history=True, horizon=EXAMPLE_HORIZON)
     summary['examples'] = [dict(label=f'T{j+1}', initial=z.tolist(), settled=bool(traces['success'][j]), onset=float(traces['onset'][j])) for j, z in enumerate(examples)]
-    summary['settings'] = dict(horizon=HORIZON, tolerance=TOL, hold=.5, angle_domain=[LEFT, RIGHT], grid_shape=[121,181], boundary_offsets=[1e-3,1e-5])
+    summary['settings'] = dict(horizon=HORIZON, example_horizon=EXAMPLE_HORIZON, tolerance=TOL, hold=.5, angle_domain=[LEFT, RIGHT], grid_shape=[121,181], boundary_offsets=[1e-3,1e-5])
     np.savez_compressed(OUT/'numerical_roa_data.npz', initial=initial, expected=expected,
                         coarse_success=runs[0]['success'], fine_success=runs[1]['success'],
                         fine_final=runs[1]['final'], examples=examples, example_history=traces['history'])

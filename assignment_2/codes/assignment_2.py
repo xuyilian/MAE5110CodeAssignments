@@ -50,16 +50,16 @@ def in_capture(state, params):
 
 
 def standing_torque(state, params):
+    """Saturated torque for a state (2,) or a batch of states (2, N)."""
     theta, omega = state
     m, g, length = params["mass"], params["gravity"], params["length"]
     scale = m * g * length
-    return float(
-        np.clip(
-            -scale * np.sin(theta) - m * length**2 * (KP * theta + KD * omega),
-            -0.1 * scale,
-            0.05 * scale,
-        )
+    torque = np.clip(
+        -scale * np.sin(theta) - m * length**2 * (KP * theta + KD * omega),
+        -0.1 * scale,
+        0.05 * scale,
     )
+    return float(torque) if np.ndim(torque) == 0 else torque
 
 
 def uniform_action(omega, params):

@@ -16,6 +16,9 @@ assignment_2/figures/*
 !assignment_2/figures/sketch_snapshots.png
 !assignment_2/figures/sketch_phase_space.png
 !assignment_2/figures/analytical_capture_region.png
+!assignment_2/figures/numerical_roa.png
+!assignment_2/figures/roa_controlled_trajectories.png
+!assignment_2/figures/numerical_roa_summary.json
 !assignment_2/figures/lookup_state_action.png
 !assignment_2/figures/final_phase_trajectories.png
 !assignment_2/figures/final_time_trajectories.png

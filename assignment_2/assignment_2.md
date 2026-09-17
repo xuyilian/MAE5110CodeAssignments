@@ -254,7 +254,77 @@ $$
 
 Near the origin the controller is unsaturated, so the local dynamics are $\ddot\theta+80\dot\theta+240\theta=0$, confirming local asymptotic stability. Together with the preceding global argument in $D$, this establishes coverage of the plotted capture interior under the stated assumptions.
 
-Reproduce the numerical evaluations of the analytical inequalities with `python3 assignment_2/codes/verify_capture_gains.py`. No state-grid sampling or trajectory integration is used. Section 5 verifies this controller in a detailed trajectory experiment. Section 5.5 also runs it through the completed model functions in `codes/assignment_2.py`.
+Reproduce the numerical evaluations of the analytical inequalities with `python3 assignment_2/codes/verify_capture_gains.py`. That script evaluates only the analytical inequalities. Sections 2.3–2.4 add a state-grid simulation and controlled stance examples; Section 5 verifies walking followed by capture. Section 5.5 also runs it through the completed model functions in `codes/assignment_2.py`.
+
+### 2.3 Numerical validation of the RoA
+
+To complement the analytical proof, apply the standing controller immediately at every tested initial state, including states outside the predicted RoA. Hold the swing leg clear throughout: there are no impacts, no stepping policy, and no automatic switch that restricts control to states already inside $D$. This directly tests the basin of the ankle controller under the stance assumptions of Section 2.2.
+
+Use a uniform Cartesian grid of 121 angles in $I$ and 181 velocities in $[-1.8,1.8]$ rad/s, giving **21,901 initial states**. The spacings are $\Delta\theta=0.00701248$ rad and $\Delta\omega=0.02$ rad/s. To resolve the thin boundary neighborhood, add **968 probes** at the same 121 angles. With $w(\theta)=\omega_+(\theta)-\omega_-(\theta)$, these are
+
+$$
+\omega=\omega_-(\theta)\pm\varepsilon w(\theta),\qquad
+\omega=\omega_+(\theta)\pm\varepsilon w(\theta),\qquad
+\varepsilon\in\lbrace 10^{-3},10^{-5}\rbrace .
+$$
+
+Half of these probes lie inside the curved boundaries and half outside. Exact boundary trajectories are excluded: they approach tilted equilibria rather than upright standing, and numerical roundoff can move them to either side.
+
+#### Integration and success criterion
+
+Use the implemented model, saturated torque function, and RK4 integrator from `codes/assignment_2.py`, with feedback recomputed at all four stages. Integrate for 15 s using $\Delta t=0.002$ s, then repeat every initial condition with $\Delta t=0.001$ s. A trajectory succeeds only if it stays in $I$ and satisfies
+
+$$
+|\theta(t_j)|<10^{-6}\ \mathrm{rad},\qquad
+|\omega(t_j)|<10^{-6}\ \mathrm{rad/s}
+$$
+
+at every integration sample in the final 0.5 s. Leaving $I$ terminates that trial as an escape from the tested stance domain. A trajectory that neither escapes nor meets the convergence criterion is unresolved, rather than automatically classified as outside the true RoA. Check the curved-boundary margins at every stored integration step as a separate numerical invariance check.
+
+#### Results and timestep refinement
+
+Both timesteps produce the following results:
+
+| Initial-state set | Total | Inside $D$ | Inside and converged | Outside and converged | Escaped $I$ | Unresolved |
+|:---|---:|---:|---:|---:|---:|---:|
+| Uniform Cartesian grid | 21,901 | 2,856 | 2,856 | 0 | 19,045 | 0 |
+| Near-boundary probes | 968 | 484 | 484 | 0 | 484 | 0 |
+| **Combined** | **22,869** | **3,340** | **3,340** | **0** | **19,529** | **0** |
+
+There are **zero disagreements** between the numerical convergence labels and analytical interior membership, and **zero label changes** after halving the timestep. Across interior trials, the sustained-tolerance onset changes by at most 0.002 s. No interior trajectory crosses a curved boundary at the checked samples. Across the interior trials, the smallest sampled velocity margin to either boundary is $4.70\times10^{-6}$ rad/s. At 15 s, the refined run has maximum errors $|\theta|<1.55\times10^{-17}$ rad and $|\omega|<4.82\times10^{-17}$ rad/s. The latest onset of sustained standing tolerance is 7.391 s. Sampled torque remains in $[-0.981,0.4905]$ N m, and clipping enforces the same limits at each RK4 stage.
+
+![Numerical RoA on a uniform state grid and six controlled stance trajectories.](figures/numerical_roa.png)
+
+The left panel colors the initial states by the simulation result, with analytical boundaries overlaid afterward for comparison. The right panel shows six trajectories; circles mark initial states, arrows indicate time direction, and the star marks upright standing.
+
+These results are **numerical validation, not a proof for every state in the continuum**. They support the analytical proof in Section 2.2 over the stated angle domain. In particular, finite grid spacing and a finite time horizon cannot establish exact behavior arbitrarily close to a separatrix.
+
+### 2.4 Example trajectories under ankle control
+
+The six examples include recovery from large inward-moving angles and initial velocities close to both capture boundaries. All use $k_p=240$, $k_d=80$ and the same torque limits; none uses a footstrike. Initial states below are rounded for display; the script retains their full precision.
+
+| Trajectory | $\theta_0$ (rad) | $\omega_0$ (rad/s) | Sustained tolerance onset (s) |
+|:---|---:|---:|---:|
+| T1 | -0.300000 | 1.014516 | 4.400 |
+| T2 | -0.200000 | 0.473132 | 4.784 |
+| T3 | 0.000000 | 0.308640 | 5.165 |
+| T4 | 0.000000 | -0.151921 | 4.710 |
+| T5 | 0.300000 | -0.625913 | 5.196 |
+| T6 | 0.480000 | -1.409494 | 4.559 |
+
+Here the onset is the first sample of the final uninterrupted interval satisfying both tolerances; confirmation requires another 0.5 s. T2 and T4 start 1% of the local velocity width above the lower boundary; T3 and T5 start 1% below the upper boundary. T1 and T6 start midway between the boundaries. Thus the examples exercise both torque saturation directions and recovery from both sides of upright.
+
+![Angle, velocity, and torque for six controlled stance trajectories.](figures/roa_controlled_trajectories.png)
+
+Dashed horizontal lines show the torque limits. The plots display the first 8 s; the simulations continue to 15 s to verify sustained convergence. Angle and velocity need not decrease monotonically: the controller first brakes or reverses motion, then approaches the unsaturated stable dynamics near upright.
+
+Reproduce the sweep and both figures with:
+
+```sh
+uv run python assignment_2/codes/validate_roa.py
+```
+
+The script saves the [numerical summary](figures/numerical_roa_summary.json), both embedded PNGs, and `figures/numerical_roa_data.npz` containing initial states, convergence labels at both timesteps, refined terminal states, and the six full example trajectories. The large NPZ is regenerated locally; the figures and summary are included in the repository.
 
 ## 3. Poincaré map and uniform-grid lookup policy
 

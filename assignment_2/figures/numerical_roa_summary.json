@@ -1,0 +1,167 @@
+{
+  "0.002": {
+    "grid": {
+      "total": 21901,
+      "inside": 2856,
+      "inside_converged": 2856,
+      "outside_converged": 0,
+      "escaped": 19045,
+      "unresolved": 0,
+      "classification_disagreement": 0,
+      "inside_boundary_violations": 0,
+      "inside_min_boundary_margin": 0.00010227104081461658,
+      "inside_max_final_abs_state": [
+        5.358093940905737e-19,
+        1.6727016458101115e-18
+      ],
+      "latest_inside_onset": 6.314,
+      "torque_range": [
+        -0.9810000000000001,
+        0.49050000000000005
+      ]
+    },
+    "boundary_probes": {
+      "total": 968,
+      "inside": 484,
+      "inside_converged": 484,
+      "outside_converged": 0,
+      "escaped": 484,
+      "unresolved": 0,
+      "classification_disagreement": 0,
+      "inside_boundary_violations": 0,
+      "inside_min_boundary_margin": 4.699487099302235e-06,
+      "inside_max_final_abs_state": [
+        1.5429110327097666e-17,
+        4.81669386952917e-17
+      ],
+      "latest_inside_onset": 7.392,
+      "torque_range": [
+        -0.9810000000000001,
+        0.49050000000000005
+      ]
+    }
+  },
+  "0.001": {
+    "grid": {
+      "total": 21901,
+      "inside": 2856,
+      "inside_converged": 2856,
+      "outside_converged": 0,
+      "escaped": 19045,
+      "unresolved": 0,
+      "classification_disagreement": 0,
+      "inside_boundary_violations": 0,
+      "inside_min_boundary_margin": 0.00010227104081461658,
+      "inside_max_final_abs_state": [
+        5.358092724332229e-19,
+        1.6727012660174965e-18
+      ],
+      "latest_inside_onset": 6.314,
+      "torque_range": [
+        -0.9810000000000001,
+        0.49050000000000005
+      ]
+    },
+    "boundary_probes": {
+      "total": 968,
+      "inside": 484,
+      "inside_converged": 484,
+      "outside_converged": 0,
+      "escaped": 484,
+      "unresolved": 0,
+      "classification_disagreement": 0,
+      "inside_boundary_violations": 0,
+      "inside_min_boundary_margin": 4.699487099302235e-06,
+      "inside_max_final_abs_state": [
+        1.5429098014933416e-17,
+        4.816690025890437e-17
+      ],
+      "latest_inside_onset": 7.391,
+      "torque_range": [
+        -0.9810000000000001,
+        0.49050000000000005
+      ]
+    }
+  },
+  "refinement": {
+    "max_inside_onset_difference": 0.0019999999999997797,
+    "classification_changes": 0,
+    "max_inside_terminal_difference": [
+      5.389685307611017e-23,
+      1.6825639086100416e-22
+    ]
+  },
+  "examples": [
+    {
+      "label": "T1",
+      "initial": [
+        -0.3,
+        1.0145156060250102
+      ],
+      "settled": true,
+      "onset": 4.4
+    },
+    {
+      "label": "T2",
+      "initial": [
+        -0.2,
+        0.473132490721106
+      ],
+      "settled": true,
+      "onset": 4.784
+    },
+    {
+      "label": "T3",
+      "initial": [
+        0.0,
+        0.3086404551562168
+      ],
+      "settled": true,
+      "onset": 5.165
+    },
+    {
+      "label": "T4",
+      "initial": [
+        0.0,
+        -0.15192131213979676
+      ],
+      "settled": true,
+      "onset": 4.71
+    },
+    {
+      "label": "T5",
+      "initial": [
+        0.3,
+        -0.6259127331496546
+      ],
+      "settled": true,
+      "onset": 5.196
+    },
+    {
+      "label": "T6",
+      "initial": [
+        0.48,
+        -1.4094935293703958
+      ],
+      "settled": true,
+      "onset": 4.559
+    }
+  ],
+  "settings": {
+    "horizon": 15.0,
+    "tolerance": 1e-06,
+    "hold": 0.5,
+    "angle_domain": [
+      -0.33269908169872414,
+      0.5087989505128276
+    ],
+    "grid_shape": [
+      121,
+      181
+    ],
+    "boundary_offsets": [
+      0.001,
+      1e-05
+    ]
+  }
+}

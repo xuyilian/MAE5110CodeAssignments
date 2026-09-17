@@ -106,7 +106,7 @@ $$
 \ddot\theta=\frac{g}{\ell}(\sin\theta+u).
 $$
 
-The limiting balance angles are $\theta_L=-\arcsin b=-0.05002$ rad and $\theta_R=\arcsin a=0.10017$ rad. Integrating $\omega\,d\omega/d\theta=(g/\ell)(\sin\theta+u)$ under extreme torques gives
+The limiting balance angles are $\theta_L=-\arcsin b=-0.05002$ rad and $\theta_R=\arcsin a=0.10017$ rad. Integrating $\omega\thinspace d\omega/d\theta=(g/\ell)(\sin\theta+u)$ under extreme torques gives
 
 $$
 F_R(\theta)=\frac{2g}{\ell}[\cos\theta_R-\cos\theta+a(\theta_R-\theta)],
@@ -157,7 +157,7 @@ $$
 This claim applies to the ideal continuous-time stance model with the swing leg held clear, without foot impacts or additional failure constraints. Define
 
 $$
-D=\{(\theta,\omega):\theta\in I,\ \omega_-(\theta)<\omega<\omega_+(\theta)\}.
+D=\lbrace (\theta,\omega):\theta\in I,\ \omega_-(\theta)<\omega<\omega_+(\theta)\rbrace .
 $$
 
 Every initial state in $D$ converges to $(0,0)$ under this controller. The two curved boundaries are excluded. The following establishes both invariance and convergence; it is not a simulation-based claim.
@@ -197,22 +197,22 @@ and the corresponding bounds with $L$ replacing $R$. With the signs of the bound
 
 $$
 \begin{aligned}
-\delta_+ =\min\{&s_{\min}\theta_R-(c-s_{\min})T,\ c\theta_R,\\
-&s_{\max}\theta_R+(c-s_{\max})T\}=0.24652533\ \mathrm{rad/s},
+\delta_+ =\min\lbrace &s_{\min}\theta_R-(c-s_{\min})T,\ c\theta_R,\\
+&s_{\max}\theta_R+(c-s_{\max})T\rbrace =0.24652533\ \mathrm{rad/s},
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\delta_- =\min\{&-s_{\max}\theta_L-(s_{\max}-c)T,\ -c\theta_L,\\
-&-s_{\min}\theta_L-(c-s_{\min})T\}=0.08946168\ \mathrm{rad/s}.
+\delta_- =\min\lbrace &-s_{\max}\theta_L-(s_{\max}-c)T,\ -c\theta_L,\\
+&-s_{\min}\theta_L-(c-s_{\min})T\rbrace =0.08946168\ \mathrm{rad/s}.
 \end{aligned}
 $$
 
 Thus $c\theta+\omega_+\geq\delta_+$ and $c\theta+\omega_-\leq-\delta_-$. A sufficient choice is
 
 $$
-k_d>\max\left\{\frac{q(a+\sin T)}{\delta_+},\frac{q(b+\sin T)}{\delta_-}\right\}
+k_d>\max\left\lbrace \frac{q(a+\sin T)}{\delta_+},\frac{q(b+\sin T)}{\delta_-}\right\rbrace
 =58.89933\ \mathrm{s}^{-1}.
 $$
 
@@ -229,7 +229,7 @@ Consequently, the closure of $D$ is compact and forward invariant, and an initia
 Define $f_0(\theta)=f(\theta,0)$ and the energy-like function
 
 $$
-W(\theta,\omega)=\frac12\omega^2-\int_0^\theta f_0(s)\,ds.
+W(\theta,\omega)=\frac12\omega^2-\int_0^\theta f_0(s)\thinspace ds.
 $$
 
 It need not be positive over the entire capture region. It is continuously differentiable and bounded below on the compact invariant set, which is sufficient for the invariance argument. Since $f(\theta,\omega)$ is nonincreasing in $\omega$,
@@ -252,7 +252,7 @@ $$
 \boxed{\theta(t)\to0,\qquad\dot\theta(t)\to0.}
 $$
 
-Near the origin the controller is unsaturated, so the local dynamics are $\ddot\theta+80\dot\theta+240\theta=0$, confirming local asymptotic stability. Together with the preceding global-in-$D$ argument, this establishes coverage of the plotted capture interior under the stated assumptions.
+Near the origin the controller is unsaturated, so the local dynamics are $\ddot\theta+80\dot\theta+240\theta=0$, confirming local asymptotic stability. Together with the preceding global argument in $D$, this establishes coverage of the plotted capture interior under the stated assumptions.
 
 Reproduce the numerical evaluations of the analytical inequalities with `python3 assignment_2/codes/verify_capture_gains.py`. No state-grid sampling or trajectory integration is used. Section 5 verifies this controller in a detailed trajectory experiment. Section 5.5 also runs it through the completed model functions in `codes/assignment_2.py`.
 
@@ -341,7 +341,7 @@ $$
 where $n_{\mathrm{TD}}$ is zero or one within the current transition. Then
 
 $$
-V(\omega)=\min_\alpha Q(\omega,\alpha),\qquad\pi(\omega)\in\operatorname*{arg\,min}_\alpha Q(\omega,\alpha).
+V(\omega)=\min_\alpha Q(\omega,\alpha),\qquad\pi(\omega)\in\operatorname*{arg\thinspace min}_\alpha Q(\omega,\alpha).
 $$
 
 Propagate costs backward from known capture states until they stop changing. Initially use nearest-grid successors; then improve the policy using unrounded analytical transitions and the actual subsequent lookup decisions. Equal-cost actions prefer greater terminal capture margin or smaller next velocity. For the fine reference, an actual state outside the RoA uses the nearest nonterminal entry if its nearest grid point is terminal and has no action.
@@ -369,9 +369,9 @@ Store $a_0=\alpha_{\min}$ at the zero-velocity node and $a_i=\alpha_{\max}$ at e
 Outside the RoA, select the nearest node, resolving equal distances toward the higher-index node:
 
 $$
-i^*(\omega)=\min\!\left(N_\omega-1,
+i^{\ast}(\omega)=\min\left(N_\omega-1,
 \left\lfloor\frac{\omega}{\Delta\omega}+\frac12\right\rfloor\right),
-\qquad \pi_U(\omega)=a_{i^*(\omega)}.
+\qquad \pi_U(\omega)=a_{i^{\ast}(\omega)}.
 $$
 
 Only the action is selected through this index. Propagate the actual, unrounded velocity and re-evaluate the guard and lookup after each transition. For $N_\omega=3$, the table is
@@ -411,15 +411,15 @@ n_\pi^{(j)}=\begin{cases}
 \end{cases}
 $$
 
-States initially inside the RoA have $n_\pi^{(j)}=0$. Let $n_{\mathrm{ref}}^{(j)}$ be the reference policy's executed count on the same initial velocity. The reference must succeed on every test. With $\mathbf{1}\{\cdot\}$ equal to one when its condition is true and zero otherwise, define
+States initially inside the RoA have $n_\pi^{(j)}=0$. Let $n_{\mathrm{ref}}^{(j)}$ be the reference policy's executed count on the same initial velocity. The reference must succeed on every test. With $\mathbf{1}\lbrace \cdot\rbrace$ equal to one when its condition is true and zero otherwise, define
 
 $$
-\boxed{N_{\mathrm{failure}}=\sum_{j=1}^{N}\mathbf{1}\{n_\pi^{(j)}=\infty\}.}
+\boxed{N_{\mathrm{failure}}=\sum_{j=1}^{N}\mathbf{1}\lbrace n_\pi^{(j)}=\infty\rbrace .}
 $$
 
 $$
 \boxed{N_{\mathrm{disagreement}}=\sum_{j=1}^{N}
-\mathbf{1}\{n_\pi^{(j)}<\infty\ \text{and}\ n_\pi^{(j)}\ne n_{\mathrm{ref}}^{(j)}\}.}
+\mathbf{1}\lbrace n_\pi^{(j)}<\infty\ \text{and}\ n_\pi^{(j)}\ne n_{\mathrm{ref}}^{(j)}\rbrace .}
 $$
 
 Thus failed recoveries contribute only to $N_{\mathrm{failure}}$. Successful recoveries with different step counts contribute to $N_{\mathrm{disagreement}}$, regardless of whether the candidate takes more or fewer steps. The candidate passes precisely when both counts are zero.
@@ -507,9 +507,9 @@ The blue curves are passive stance segments. Orange arrows are instantaneous imp
 
 A nonterminal forward return without RoA entry requires a section velocity at least $U(\alpha)$ for the selected action; below its lower capture threshold, a forward return is impossible. Since $U(\alpha)$ increases with angle, any successful nonterminal return requires $\omega\geq U(\alpha_{\min})=1.2951071921$.
 
-For these velocities, the derivative of the return radicand with respect to angle is negative, as bounded in Section 4. Therefore $\alpha_{\min}$ maximizes the next section velocity. The return map is also increasing in the current velocity. Inductively, the all-$\alpha_{\min}$ sequence gives an upper bound on the section velocity after every nonterminal step, regardless of previous action choices.
+For these velocities, the derivative of the return radicand with respect to angle is negative, as bounded in Section 4. Therefore $\alpha_{\min}$ maximizes the next section velocity. The return map is also increasing in the current velocity. Inductively, the sequence using only $\alpha_{\min}$ gives an upper bound on the section velocity after every nonterminal step, regardless of previous action choices.
 
-After four returns, this bound is only $0.9140770021<1.2951071921$. A fifth nonterminal return is therefore impossible: the next action must enter the RoA or fail. The all-$\alpha_{\min}$ sequence enters the RoA at its fifth impact, so the upper bound is attained:
+After four returns, this bound is only $0.9140770021<1.2951071921$. A fifth nonterminal return is therefore impossible: the next action must enter the RoA or fail. The sequence using only $\alpha_{\min}$ enters the RoA at its fifth impact, so the upper bound is attained:
 
 $$
 \boxed{N_{\min}=3,\qquad N_{\max}=5.}

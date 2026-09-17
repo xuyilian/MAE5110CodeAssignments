@@ -151,7 +151,7 @@ $$
 Use the bounded feedback-linearizing controller
 
 $$
-\tau=\operatorname{clip}\left(-mg\ell\sin\theta-m\ell^2(k_p\theta+k_d\omega),-amg\ell,bmg\ell\right).
+\tau=\mathrm{clip}\left(-mg\ell\sin\theta-m\ell^2(k_p\theta+k_d\omega),-amg\ell,bmg\ell\right).
 $$
 
 This claim applies to the ideal continuous-time stance model with the swing leg held clear, without foot impacts or additional failure constraints. Define
@@ -167,7 +167,7 @@ Every initial state in $D$ converges to $(0,0)$ under this controller. The two c
 Let $q=g/\ell=9.81\ \mathrm{s}^{-2}$ and write the acceleration as
 
 $$
-f(\theta,\omega)=q\sin\theta+\operatorname{clip}(-q\sin\theta-k_p\theta-k_d\omega,-aq,bq).
+f(\theta,\omega)=q\sin\theta+\mathrm{clip}(-q\sin\theta-k_p\theta-k_d\omega,-aq,bq).
 $$
 
 The upper capture boundary is the stable manifold of $(\theta_R,0)$ under the constant input $-aq$; the lower boundary is the stable manifold of $(\theta_L,0)$ under $bq$. The controller matches these inputs on the boundaries if
@@ -341,7 +341,7 @@ $$
 where $n_{\mathrm{TD}}$ is zero or one within the current transition. Then
 
 $$
-V(\omega)=\min_\alpha Q(\omega,\alpha),\qquad\pi(\omega)\in\operatorname*{arg\thinspace min}_\alpha Q(\omega,\alpha).
+V(\omega)=\min_\alpha Q(\omega,\alpha),\qquad\pi(\omega)\in\mathrm{arg}\thinspace\min_\alpha Q(\omega,\alpha).
 $$
 
 Propagate costs backward from known capture states until they stop changing. Initially use nearest-grid successors; then improve the policy using unrounded analytical transitions and the actual subsequent lookup decisions. Equal-cost actions prefer greater terminal capture margin or smaller next velocity. For the fine reference, an actual state outside the RoA uses the nearest nonterminal entry if its nearest grid point is terminal and has no action.

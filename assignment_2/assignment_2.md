@@ -92,7 +92,7 @@ From the repository root, run:
 uv run python assignment_2/codes/sketch_assignment_2.py
 ```
 
-The script generates both figures under `figures/`. That directory is ignored by Git, consistent with the assignment's requirement to commit artifact-generating code rather than binary images. Generate the images locally before previewing or compiling this report.
+The script generates both figures under `figures/`. Images and the GIF embedded in this report are included in the repository so that GitHub can display them. Other generated numerical results remain ignored; the code can regenerate all artifacts.
 
 ## 2. Standing controller and region of attraction
 

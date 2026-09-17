@@ -11,8 +11,15 @@ assignments_tex/
 output/
 tmp/pdfs/
 
-# Generated Assignment 2 artifacts; reproduce with assignment_2/codes/.
-assignment_2/figures/
+# Ignore generated data; include the images embedded in the report.
+assignment_2/figures/*
+!assignment_2/figures/sketch_snapshots.png
+!assignment_2/figures/sketch_phase_space.png
+!assignment_2/figures/analytical_capture_region.png
+!assignment_2/figures/lookup_state_action.png
+!assignment_2/figures/final_phase_trajectories.png
+!assignment_2/figures/final_time_trajectories.png
+!assignment_2/figures/walker.gif
 
 assignment_2/assignment_2_pdf.md
 

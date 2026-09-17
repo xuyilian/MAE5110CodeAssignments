@@ -10,3 +10,10 @@ assignments_tex/
 # Assignment 2 figures, numerical tables, and compiled report are reproducible.
 output/
 tmp/pdfs/
+
+# Generated Assignment 2 artifacts; reproduce with assignment_2/codes/.
+assignment_2/figures/
+
+assignment_2/assignment_2_pdf.md
+
+assignment_2/assignment_2.pdf

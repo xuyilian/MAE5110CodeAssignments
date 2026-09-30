@@ -24,3 +24,4 @@ uv run python assignment_0.py
 - [Assignment 0](assignments/assignment_0.md)
 - [Assignment 1](assignments/assignment_1.md) — [implementation and reproduction guide](assignment_1/README.md).
 - [Assignment 2](assignments/assignment_2.md) — [implementation and reproduction guide](assignment_2/README.md). Generated figures, animations, and the PDF are built locally rather than committed to Git.
+- [Assignment 3](assignments/assignment_3.md)
